@@ -3,159 +3,186 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Grupo Tierra Firme S.A.</title>
 
+<!-- Google Font Premium -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#000;color:#fff;overflow-x:hidden;}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #000;
+    color: white;
+}
 
 /* NAVBAR */
-.navbar{
-    position:fixed;
-    width:100%;
-    top:0;
-    padding:20px 40px;
-    display:flex;
-    justify-content:center;
-    z-index:100;
-    transition:0.4s;
-}
-.navbar.scrolled{
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(10px);
-}
-.nav-container{
-    display:flex;
-    align-items:center;
-    gap:40px;
-}
-.navbar img{height:70px;}
-.navbar a{
-    color:white;
-    text-decoration:none;
-    opacity:.7;
-    transition:.3s;
-}
-.navbar a:hover{opacity:1;}
-
-/* HERO */
-.hero{
-    height:100vh;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-}
-.hero video{
-    position:absolute;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transform:scale(1.1);
-    transition:transform 0.2s linear;
-}
-.overlay{
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
+    z-index: 10;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
 }
 
-/* TEXT */
-.hero-content{
-    z-index:2;
-}
-.hero-content h1{
-    font-size:64px;
-    margin-bottom:20px;
-    letter-spacing:1px;
-}
-.hero-content p{
-    font-size:18px;
-    opacity:.8;
-    margin-bottom:30px;
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
-/* BUTTON */
-.btn{
-    padding:15px 35px;
-    border-radius:30px;
-    background:linear-gradient(135deg,#2563eb,#1e40af);
-    color:#fff;
-    text-decoration:none;
-    box-shadow:0 0 20px rgba(37,99,235,.5);
-    transition:.3s;
+.navbar img {
+    height: 60px;
 }
-.btn:hover{
-    transform:scale(1.08);
-    box-shadow:0 0 30px rgba(37,99,235,.8);
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    opacity: 1;
+}
+
+/* HERO VIDEO */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+/* HERO TEXT */
+.hero-content h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
+    animation: fadeSlide 2s ease;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.8;
+    animation: fadeSlide 2.5s ease;
+}
+
+.btn {
+    padding: 14px 28px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
 }
 
 /* SECTIONS */
-.section{
-    padding:120px 20px;
-    text-align:center;
-    opacity:0;
-    transform:translateY(80px);
-    transition:1s ease;
+.section {
+    padding: 100px 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1s ease;
 }
-.section.visible{
-    opacity:1;
-    transform:translateY(0);
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* WHATSAPP */
-.whatsapp{
-    position:fixed;
-    bottom:25px;
-    right:25px;
-    width:65px;
-    height:65px;
-    background:#25D366;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:30px;
-    color:white;
-    text-decoration:none;
-    box-shadow:0 0 15px rgba(0,0,0,0.4);
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    color: white;
+    text-decoration: none;
 }
 
-/* LANG */
-.lang{
-    position:fixed;
-    top:20px;
-    right:20px;
-    z-index:200;
+/* LANGUAGE SWITCH */
+.lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 20;
 }
-.lang button{
-    background:none;
-    border:1px solid #fff;
-    color:#fff;
-    margin-left:5px;
-    padding:5px 10px;
-    cursor:pointer;
+
+.lang-switch button {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* ANIMATION */
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- LANG -->
-<div class="lang">
+<!-- LANGUAGE -->
+<div class="lang-switch">
     <button onclick="setLang('es')">ES</button>
     <button onclick="setLang('en')">EN</button>
 </div>
 
-<!-- NAV -->
-<div class="navbar" id="navbar">
+<!-- NAVBAR -->
+<div class="navbar">
     <div class="nav-container">
-        <img src="logo.png">
+        <img src="logo.png" alt="logo">
         <a href="#">Home</a>
         <a href="#">Servicios</a>
         <a href="#">Company</a>
@@ -165,28 +192,27 @@ body{background:#000;color:#fff;overflow-x:hidden;}
 
 <!-- HERO -->
 <section class="hero">
-    <video id="bgVideo" autoplay muted loop>
+    <video autoplay muted loop>
         <source src="video.mp4" type="video/mp4">
     </video>
-
     <div class="overlay"></div>
 
     <div class="hero-content">
-        <h1 id="title"></h1>
-        <p id="subtitle"></p>
+        <h1 id="title">Grupo Tierra Firme S.A.</h1>
+        <p id="subtitle">Soluciones de capital inteligentes para el crecimiento empresarial</p>
         <a href="https://formspree.io/f/mbdwjgzz" class="btn">Get Started</a>
     </div>
 </section>
 
-<!-- SECTIONS -->
+<!-- SECTIONS WOW -->
 <section class="section">
-    <h2>Financiamiento Inteligente</h2>
-    <p>Soluciones diseñadas para escalar empresas.</p>
+    <h2>Financiamiento Estratégico</h2>
+    <p>Impulsamos empresas con capital flexible y eficiente.</p>
 </section>
 
 <section class="section">
-    <h2>Capital Estratégico</h2>
-    <p>Acceso rápido y flexible para crecimiento.</p>
+    <h2>Expansión Internacional</h2>
+    <p>Conectamos oportunidades entre USA y Panamá.</p>
 </section>
 
 <!-- WHATSAPP -->
@@ -194,68 +220,26 @@ body{background:#000;color:#fff;overflow-x:hidden;}
 
 <script>
 
-/* TYPEWRITER EFFECT */
-const text = "Grupo Tierra Firme S.A.";
-let i = 0;
+/* SCROLL ANIMATION WOW */
+const sections = document.querySelectorAll('.section');
 
-function typeEffect(){
-    if(i < text.length){
-        document.getElementById("title").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeEffect, 50);
-    }
-}
-typeEffect();
-
-document.getElementById("subtitle").innerText =
-"Soluciones de capital inteligentes para el crecimiento empresarial";
-
-/* PARALLAX VIDEO */
-window.addEventListener("scroll", ()=>{
-    const video = document.getElementById("bgVideo");
-    video.style.transform = `scale(${1.1 + window.scrollY * 0.0003})`;
-});
-
-/* NAV SCROLL */
-window.addEventListener("scroll", ()=>{
-    document.getElementById("navbar")
-    .classList.toggle("scrolled", window.scrollY > 50);
-});
-
-/* SCROLL REVEAL */
-const sections = document.querySelectorAll(".section");
-window.addEventListener("scroll", ()=>{
-    sections.forEach(sec=>{
+window.addEventListener('scroll', () => {
+    sections.forEach(sec => {
         const top = sec.getBoundingClientRect().top;
         if(top < window.innerHeight - 100){
-            sec.classList.add("visible");
+            sec.classList.add('visible');
         }
     });
 });
 
-/* LANG */
-function setLang(lang){
-    if(lang==="en"){
-        document.getElementById("title").innerHTML="";
-        i=0;
-        const enText="Tierra Firme Group";
-        function typeEN(){
-            if(i<enText.length){
-                document.getElementById("title").innerHTML+=enText.charAt(i);
-                i++;
-                setTimeout(typeEN,50);
-            }
-        }
-        typeEN();
-
-        document.getElementById("subtitle").innerText =
-        "Smart capital solutions for business growth";
-    }else{
-        document.getElementById("title").innerHTML="";
-        i=0;
-        typeEffect();
-        document.getElementById("subtitle").innerText =
-        "Soluciones de capital inteligentes para el crecimiento empresarial";
+/* LANGUAGE SWITCH */
+function setLang(lang) {
+    if(lang === 'en'){
+        document.getElementById('title').innerText = "Tierra Firme Group";
+        document.getElementById('subtitle').innerText = "Smart capital solutions for business growth";
+    } else {
+        document.getElementById('title').innerText = "Grupo Tierra Firme S.A.";
+        document.getElementById('subtitle').innerText = "Soluciones de capital inteligentes para el crecimiento empresarial";
     }
 }
 
