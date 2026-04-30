@@ -10,9 +10,10 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-body{color:white;overflow-x:hidden;}
 
-/* NAV PREMIUM */
+body{color:white;}
+
+/* NAV */
 nav{
 position:fixed;
 top:0;
@@ -20,53 +21,49 @@ width:100%;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:25px;
-z-index:20;
-background:linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+padding:20px;
+z-index:10;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(12px);
 }
 
 nav img{
-height:70px;
+height:60px; /* LOGO MÁS GRANDE */
 position:absolute;
-left:40px;
-opacity:0;
-animation:fadeDown 1.5s ease forwards;
+left:30px;
+filter:drop-shadow(0 0 5px rgba(0,0,0,0.7));
 }
 
 nav ul{
 display:flex;
-gap:50px;
+gap:40px;
 list-style:none;
-opacity:0;
-animation:fadeDown 1.5s ease forwards;
 }
 
 nav a{
 color:white;
 text-decoration:none;
 font-size:14px;
-letter-spacing:1px;
-opacity:0.8;
+opacity:0.9;
 }
 
 nav a:hover{opacity:1;}
 
-/* LANGUAGE */
+/* LANGUAGE SWITCH */
 .lang{
 position:absolute;
-right:40px;
+right:30px;
 display:flex;
 gap:10px;
 }
 
 .lang button{
-background:transparent;
-border:1px solid rgba(255,255,255,0.5);
+background:none;
+border:1px solid white;
 color:white;
-padding:5px 12px;
+padding:5px 10px;
 cursor:pointer;
-border-radius:20px;
-font-size:12px;
+border-radius:5px;
 }
 
 /* HERO VIDEO */
@@ -80,7 +77,6 @@ text-align:center;
 overflow:hidden;
 }
 
-/* VIDEO PERFECT COVER */
 .hero video{
 position:absolute;
 top:0;
@@ -89,54 +85,38 @@ width:100%;
 height:100%;
 object-fit:cover;
 z-index:0;
-filter:brightness(0.7);
 }
 
-/* GRADIENT OVERLAY */
 .overlay{
 position:absolute;
 width:100%;
 height:100%;
-background:linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8));
+background:rgba(0,0,0,0.6);
 z-index:1;
 }
 
-/* CONTENT */
 .content{
 position:relative;
 z-index:2;
-max-width:900px;
+max-width:800px;
 }
 
-/* ANIMATIONS */
-.fade-up{
+/* ANIMACIÓN MÁS SUAVE */
+.fade-text{
 opacity:0;
-transform:translateY(40px);
-animation:fadeUp 1.5s ease forwards;
+transform:translateX(-80px);
+animation:fadeIn 3s ease forwards;
 }
 
-.delay1{animation-delay:0.5s;}
-.delay2{animation-delay:1s;}
-.delay3{animation-delay:1.5s;}
-
-@keyframes fadeUp{
+@keyframes fadeIn{
 to{
 opacity:1;
-transform:translateY(0);
+transform:translateX(0);
 }
 }
 
-@keyframes fadeDown{
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* TEXT */
 h1{
-font-size:64px;
-font-weight:600;
+font-size:52px;
 margin-bottom:20px;
 }
 
@@ -146,41 +126,22 @@ opacity:0.85;
 margin-bottom:30px;
 }
 
-/* BUTTON */
 .btn{
-padding:14px 35px;
+padding:14px 30px;
 border-radius:30px;
-background:white;
-color:black;
+background:linear-gradient(135deg,#3b82f6,#2563eb);
+color:white;
 text-decoration:none;
 font-weight:500;
 transition:0.3s;
 }
 
-.btn:hover{
-background:#ddd;
-}
-
-/* SCROLL INDICATOR */
-.scroll{
-position:absolute;
-bottom:30px;
-left:50%;
-transform:translateX(-50%);
-opacity:0.6;
-font-size:12px;
-animation:bounce 2s infinite;
-}
-
-@keyframes bounce{
-0%,100%{transform:translate(-50%,0);}
-50%{transform:translate(-50%,10px);}
-}
+.btn:hover{transform:scale(1.05);}
 
 /* FORM */
 .form-section{
-padding:100px 20px;
-background:#0b0b0b;
+padding:80px 20px;
+background:#111;
 text-align:center;
 }
 
@@ -193,31 +154,31 @@ gap:15px;
 }
 
 input,textarea{
-padding:14px;
-border-radius:10px;
+padding:12px;
+border-radius:8px;
 border:none;
 }
 
 button{
-background:white;
-color:black;
-padding:14px;
+background:#2563eb;
+color:white;
+padding:12px;
 border:none;
-border-radius:10px;
+border-radius:8px;
 cursor:pointer;
 }
 
 /* WHATSAPP */
 .whatsapp{
 position:fixed;
-bottom:25px;
-right:25px;
+bottom:20px;
+right:20px;
 background:#25D366;
 color:white;
-padding:16px;
+padding:15px;
 border-radius:50%;
-font-size:26px;
-z-index:30;
+font-size:24px;
+text-decoration:none;
 }
 </style>
 </head>
@@ -226,11 +187,12 @@ z-index:30;
 
 <!-- NAV -->
 <nav>
-<img src="logo.png">
+<img src="logo.png" alt="logo">
 
 <ul>
 <li><a href="#" data-en="Home" data-es="Inicio">Home</a></li>
 <li><a href="#form" data-en="Contact" data-es="Contacto">Contact</a></li>
+<li><a href="https://grupotierrafirme.com">Tierra Firme</a></li>
 </ul>
 
 <div class="lang">
@@ -249,28 +211,22 @@ z-index:30;
 <div class="overlay"></div>
 
 <div class="content">
-
-<h1 class="fade-up delay1"
-data-en="Grupo Tierra Firme S.A."
-data-es="Grupo Tierra Firme S.A.">
+<h1 class="fade-text" data-en="Grupo Tierra Firme S.A." data-es="Grupo Tierra Firme S.A.">
 Grupo Tierra Firme S.A.
 </h1>
 
-<p class="fade-up delay2"
+<p class="fade-text"
 data-en="Strategic investments and capital solutions"
 data-es="Inversiones estratégicas y soluciones de capital">
 Strategic investments and capital solutions
 </p>
 
-<a href="#form" class="btn fade-up delay3"
+<a href="#form" class="btn"
 data-en="Get Started"
 data-es="Comenzar">
 Get Started
 </a>
-
 </div>
-
-<div class="scroll">Scroll ↓</div>
 
 </section>
 
