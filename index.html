@@ -1,229 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GTFSA</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grupo Tierra Firme</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
+body{color:white;}
 
-    body {
-      color: white;
-    }
+/* NAV */
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:10;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+}
 
-    /* NAVBAR */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      z-index: 10;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(10px);
-    }
+nav img{
+height:40px;
+position:absolute;
+left:30px;
+}
 
-    nav img {
-      height: 40px;
-      position: absolute;
-      left: 30px;
-    }
+nav ul{
+display:flex;
+gap:40px;
+list-style:none;
+}
 
-    nav ul {
-      display: flex;
-      gap: 40px;
-      list-style: none;
-    }
+nav a{
+color:white;
+text-decoration:none;
+font-size:14px;
+opacity:0.8;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      opacity: 0.8;
-    }
+nav a:hover{opacity:1;}
 
-    nav a:hover {
-      opacity: 1;
-    }
+/* HERO */
+.hero{
+height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+}
 
-    /* HERO */
-    .hero {
-      height: 100vh;
-      background: url('background.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-    }
+/* IMAGE FIX */
+.hero::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:url("./background.jpg") center/cover no-repeat;
+z-index:0;
+}
 
-    .overlay {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-    }
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+z-index:1;
+}
 
-    .content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-    }
+.content{
+position:relative;
+z-index:2;
+max-width:800px;
+}
 
-    /* ANIMATION (Araya style) */
-    .fade-text {
-      opacity: 0;
-      transform: translateX(-50px);
-      animation: fadeIn 1.5s ease forwards;
-    }
+/* SLOW ANIMATION */
+.fade-text{
+opacity:0;
+transform:translateX(-80px);
+animation:fadeIn 2.5s ease forwards;
+}
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
+@keyframes fadeIn{
+to{
+opacity:1;
+transform:translateX(0);
+}
+}
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
+h1{
+font-size:48px;
+margin-bottom:20px;
+}
 
-    p {
-      font-size: 18px;
-      opacity: 0.8;
-      margin-bottom: 30px;
-    }
+p{
+font-size:18px;
+opacity:0.85;
+margin-bottom:30px;
+}
 
-    .btn {
-      padding: 14px 30px;
-      border-radius: 30px;
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-    }
+.btn{
+padding:14px 30px;
+border-radius:30px;
+background:linear-gradient(135deg,#3b82f6,#2563eb);
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
 
-    .btn:hover {
-      transform: scale(1.05);
-    }
+.btn:hover{
+transform:scale(1.05);
+}
 
-    /* FORM */
-    .form-section {
-      padding: 80px 20px;
-      background: #111;
-      text-align: center;
-    }
+/* FORM */
+.form-section{
+padding:80px 20px;
+background:#111;
+text-align:center;
+}
 
-    form {
-      max-width: 500px;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+form{
+max-width:500px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
 
-    input, textarea {
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-    }
+input,textarea{
+padding:12px;
+border-radius:8px;
+border:none;
+}
 
-    button {
-      background: #2563eb;
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+button{
+background:#2563eb;
+color:white;
+padding:12px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
 
-    /* SOCIAL */
-    .social {
-      margin-top: 20px;
-    }
+/* SOCIAL */
+.social{margin-top:20px;}
+.social i{margin:0 10px;font-size:20px;cursor:pointer;}
 
-    .social i {
-      margin: 0 10px;
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    /* WHATSAPP */
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      padding: 15px;
-      border-radius: 50%;
-      font-size: 24px;
-      text-decoration: none;
-    }
-
-  </style>
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+font-size:24px;
+text-decoration:none;
+}
+</style>
 </head>
 
 <body>
 
 <!-- NAV -->
 <nav>
-  <img src="logo.png" alt="logo">
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Company</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
+<img src="./logo.png" alt="logo">
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#form">Contact</a></li>
+
+<!-- 🔗 LINK A LA OTRA PAGINA -->
+<li><a href="https://grupotierrafirme.com" target="_blank">Grupo Tierra Firme</a></li>
+</ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="overlay"></div>
-  <div class="content">
-    <h1 class="fade-text">Smart Capital Solutions</h1>
-    <p class="fade-text">Flexible funding tailored for your business growth</p>
-    <a href="#form" class="btn">Get Started</a>
-  </div>
+<div class="overlay"></div>
+
+<div class="content">
+<h1 class="fade-text">Grupo Tierra Firme S.A.</h1>
+<p class="fade-text">Strategic investments and capital solutions</p>
+<a href="#form" class="btn">Get Started</a>
+</div>
 </section>
 
 <!-- FORM -->
 <section id="form" class="form-section">
-  <h2>Get in Touch</h2>
+<h2>Get in Touch</h2>
 
-  <form action="https://formspree.io/f/mbdwjgzz" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message"></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+<form action="https://formspree.io/f/mbdwjgzz" method="POST">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" placeholder="Your Message"></textarea>
+<button type="submit">Send Message</button>
+</form>
 
-  <div class="social">
-    <i class="fab fa-linkedin"></i>
-    <i class="fab fa-facebook"></i>
-    <i class="fab fa-instagram"></i>
-  </div>
+<div class="social">
+<i class="fab fa-linkedin"></i>
+<i class="fab fa-facebook"></i>
+<i class="fab fa-instagram"></i>
+</div>
 </section>
 
 <!-- WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/1234567890" target="_blank">
-  <i class="fab fa-whatsapp"></i>
+<i class="fab fa-whatsapp"></i>
 </a>
 
 </body>
