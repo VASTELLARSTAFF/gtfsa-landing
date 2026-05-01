@@ -10,11 +10,11 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* 🔥 FONDO OSCURO PRO */
+/* 🔥 FONDO CORPORATIVO */
 body{
 font-family:'Inter',sans-serif;
-background:#0f172a;
-color:#e5e7eb;
+background:#5B6F75;
+color:#f1f5f9;
 overflow-x:hidden;
 }
 
@@ -28,19 +28,19 @@ justify-content:space-between;
 align-items:center;
 padding:20px 80px;
 z-index:1000;
-background:rgba(15,23,42,0.7);
+background:rgba(0,0,0,0.35);
 backdrop-filter:blur(12px);
 }
 
 /* LOGO */
 .logo{
-background:rgba(255,255,255,0.95);
+background:#ffffff;
 padding:14px 26px;
 border-radius:16px;
-box-shadow:0 8px 25px rgba(0,0,0,0.3);
+box-shadow:0 8px 25px rgba(0,0,0,0.25);
 }
 .logo img{
-height:95px;
+height:100px;
 }
 
 /* MENU */
@@ -57,7 +57,7 @@ font-weight:500;
 /* LANG */
 .lang{
 display:flex;
-background:rgba(255,255,255,0.15);
+background:rgba(255,255,255,0.2);
 padding:4px;
 border-radius:30px;
 }
@@ -74,7 +74,7 @@ background:#fff;
 color:#111;
 }
 
-/* 🔥 HERO CON FORMATO HORIZONTAL */
+/* 🔥 HERO ARAYA STYLE */
 .hero{
 height:100vh;
 display:flex;
@@ -85,13 +85,15 @@ position:relative;
 overflow:hidden;
 }
 
-/* 🔥 VIDEO 16:9 FORZADO */
+/* 🔥 VIDEO FULL SCREEN PERFECTO */
 video{
 position:absolute;
 top:50%;
 left:50%;
-width:177.77vh; /* 16:9 ratio */
-height:100vh;
+min-width:100%;
+min-height:100%;
+width:auto;
+height:auto;
 transform:translate(-50%,-50%);
 object-fit:cover;
 z-index:-2;
@@ -102,7 +104,11 @@ z-index:-2;
 position:absolute;
 width:100%;
 height:100%;
-background:linear-gradient(to bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.5));
+background:linear-gradient(
+to bottom,
+rgba(0,0,0,0.65),
+rgba(0,0,0,0.5)
+);
 z-index:-1;
 }
 
@@ -110,7 +116,6 @@ z-index:-1;
 .hero h1{
 font-size:3.5rem;
 font-weight:700;
-color:#fff;
 }
 
 .hero p{
@@ -143,11 +148,9 @@ margin:auto;
 text-align:center;
 }
 
-/* TITLES */
 .section-title{
 font-size:2rem;
 margin-bottom:20px;
-color:#fff;
 }
 
 /* SCROLL */
@@ -161,25 +164,30 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* SOCIAL */
+/* 🔥 SOCIAL ICONS REALES */
 .socials{
 position:fixed;
 left:20px;
 bottom:20px;
-background:rgba(0,0,0,0.6);
-padding:12px;
+background:rgba(0,0,0,0.5);
+padding:14px;
 border-radius:14px;
 display:flex;
 flex-direction:column;
-gap:12px;
+gap:14px;
 }
-.socials svg{
+
+.socials a svg{
 width:22px;
 height:22px;
 fill:#fff;
+transition:0.3s;
+}
+.socials a:hover svg{
+transform:scale(1.2);
 }
 
-/* 🔥 WHATSAPP REAL ICON */
+/* 🔥 WHATSAPP */
 .whatsapp{
 position:fixed;
 right:20px;
@@ -187,16 +195,16 @@ bottom:20px;
 background:#25D366;
 padding:16px;
 border-radius:50%;
-box-shadow:0 5px 15px rgba(0,0,0,0.4);
 display:flex;
 align-items:center;
 justify-content:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
 }
 
 .whatsapp svg{
 width:26px;
 height:26px;
-fill:white;
+fill:#fff;
 }
 
 /* FORM */
@@ -209,10 +217,10 @@ margin:auto;
 }
 input, textarea{
 padding:12px;
-border:1px solid #374151;
-background:#111827;
-color:#fff;
+border:none;
 border-radius:6px;
+background:#334155;
+color:#fff;
 }
 
 </style>
@@ -283,15 +291,17 @@ data-en="Construction, Technology, Healthcare, Finance, Logistics, Advisory."></
 
 <!-- SOCIAL -->
 <div class="socials">
-<a href="#"><svg viewBox="0 0 24 24"><path d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg></a>
-<a href="#"><svg viewBox="0 0 24 24"><path d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5"/></svg></a>
-<a href="#"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.5 9.87"/></svg></a>
+<a href="#"><svg viewBox="0 0 24 24"><path d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.09 20.45H3.56V9h3.53v11.45zM5.33 7.56a2.05 2.05 0 110-4.1 2.05 2.05 0 010 4.1zM20.45 20.45h-3.53v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7H9.36V9h3.39v1.56h.05c.47-.9 1.63-1.87 3.36-1.87 3.59 0 4.25 2.36 4.25 5.43v6.33z"/></svg></a>
+
+<a href="#"><svg viewBox="0 0 24 24"><path d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5C19.43 22 22 19.43 22 16.25v-8.5C22 4.57 19.43 2 16.25 2h-8.5zm4.25 5.2a4.8 4.8 0 110 9.6 4.8 4.8 0 010-9.6z"/></svg></a>
+
+<a href="#"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.5 9.87v-6.99H7.9v-2.88h2.6V9.41c0-2.56 1.52-3.98 3.85-3.98"/></svg></a>
 </div>
 
-<!-- WHATSAPP REAL -->
+<!-- WHATSAPP -->
 <a href="https://wa.me/123456789" class="whatsapp">
 <svg viewBox="0 0 32 32">
-<path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.4 2.1 7.7L0 32l8.5-2.2c2.2 1.2 4.7 1.8 7.5 1.8 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.5c-2.4 0-4.7-.6-6.8-1.7l-.5-.3-5 1.3 1.3-4.8-.3-.5c-1.2-2-1.8-4.3-1.8-6.8C2.9 9 9 2.9 16 2.9S29.1 9 29.1 16 23 28.9 16 28.9z"/>
+<path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.4 2.1 7.7L0 32l8.5-2.2c2.2 1.2 4.7 1.8 7.5 1.8 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4z"/>
 </svg>
 </a>
 
@@ -307,7 +317,6 @@ document.getElementById("btn-"+lang).classList.add("active");
 }
 setLang(localStorage.getItem("lang") || "es");
 
-/* scroll */
 const sections = document.querySelectorAll('.fade-section');
 window.addEventListener('scroll',()=>{
 sections.forEach(sec=>{
