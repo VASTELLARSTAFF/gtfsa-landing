@@ -10,10 +10,11 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
+/* 🔥 FONDO OSCURO PRO */
 body{
 font-family:'Inter',sans-serif;
-background:#fff;
-color:#111;
+background:#0f172a;
+color:#e5e7eb;
 overflow-x:hidden;
 }
 
@@ -27,19 +28,19 @@ justify-content:space-between;
 align-items:center;
 padding:20px 80px;
 z-index:1000;
-background:rgba(0,0,0,0.35);
+background:rgba(15,23,42,0.7);
 backdrop-filter:blur(12px);
 }
 
-/* LOGO PRO */
+/* LOGO */
 .logo{
-background:rgba(255,255,255,0.9);
+background:rgba(255,255,255,0.95);
 padding:14px 26px;
 border-radius:16px;
-box-shadow:0 8px 25px rgba(0,0,0,0.15);
+box-shadow:0 8px 25px rgba(0,0,0,0.3);
 }
 .logo img{
-height:90px;
+height:95px;
 }
 
 /* MENU */
@@ -53,7 +54,7 @@ text-decoration:none;
 font-weight:500;
 }
 
-/* LANG SWITCH */
+/* LANG */
 .lang{
 display:flex;
 background:rgba(255,255,255,0.15);
@@ -67,14 +68,13 @@ color:#fff;
 padding:6px 14px;
 cursor:pointer;
 border-radius:20px;
-transition:0.3s;
 }
 .lang button.active{
 background:#fff;
 color:#111;
 }
 
-/* HERO */
+/* 🔥 HERO CON FORMATO HORIZONTAL */
 .hero{
 height:100vh;
 display:flex;
@@ -82,27 +82,27 @@ justify-content:center;
 align-items:center;
 text-align:center;
 position:relative;
-padding:0 20px;
-color:#fff;
+overflow:hidden;
 }
 
+/* 🔥 VIDEO 16:9 FORZADO */
 video{
 position:absolute;
 top:50%;
 left:50%;
+width:177.77vh; /* 16:9 ratio */
+height:100vh;
 transform:translate(-50%,-50%);
-width:100%;
-height:auto;
-min-height:100%;
 object-fit:cover;
 z-index:-2;
 }
 
+/* OVERLAY */
 .overlay{
 position:absolute;
 width:100%;
 height:100%;
-background:linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(0,0,0,0.4));
+background:linear-gradient(to bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.5));
 z-index:-1;
 }
 
@@ -110,6 +110,7 @@ z-index:-1;
 .hero h1{
 font-size:3.5rem;
 font-weight:700;
+color:#fff;
 }
 
 .hero p{
@@ -128,14 +129,13 @@ color:#fff;
 text-decoration:none;
 font-weight:600;
 transition:0.3s;
-display:inline-block;
 }
 .btn:hover{
 transform:translateY(-2px);
 box-shadow:0 10px 25px rgba(37,99,235,0.4);
 }
 
-/* SECTIONS (FIX REAL) */
+/* SECTIONS */
 section{
 padding:120px 20px;
 max-width:1000px;
@@ -143,12 +143,14 @@ margin:auto;
 text-align:center;
 }
 
+/* TITLES */
 .section-title{
 font-size:2rem;
 margin-bottom:20px;
+color:#fff;
 }
 
-/* SCROLL ANIMATION */
+/* SCROLL */
 .fade-section{
 opacity:0;
 transform:translateY(50px);
@@ -159,7 +161,7 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* SOCIAL ICONS */
+/* SOCIAL */
 .socials{
 position:fixed;
 left:20px;
@@ -171,18 +173,13 @@ display:flex;
 flex-direction:column;
 gap:12px;
 }
-
-.socials a svg{
+.socials svg{
 width:22px;
 height:22px;
 fill:#fff;
-transition:0.3s;
-}
-.socials a:hover svg{
-transform:scale(1.2);
 }
 
-/* WHATSAPP */
+/* 🔥 WHATSAPP REAL ICON */
 .whatsapp{
 position:fixed;
 right:20px;
@@ -190,12 +187,16 @@ bottom:20px;
 background:#25D366;
 padding:16px;
 border-radius:50%;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+display:flex;
+align-items:center;
+justify-content:center;
 }
+
 .whatsapp svg{
-width:24px;
-height:24px;
-fill:#fff;
+width:26px;
+height:26px;
+fill:white;
 }
 
 /* FORM */
@@ -208,7 +209,9 @@ margin:auto;
 }
 input, textarea{
 padding:12px;
-border:1px solid #ccc;
+border:1px solid #374151;
+background:#111827;
+color:#fff;
 border-radius:6px;
 }
 
@@ -278,55 +281,41 @@ data-en="Construction, Technology, Healthcare, Finance, Logistics, Advisory."></
 
 </section>
 
-<!-- SOCIAL ICONS -->
+<!-- SOCIAL -->
 <div class="socials">
-<a href="#">
-<svg viewBox="0 0 24 24"><path d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.09 20.45H3.56V9h3.53v11.45zM5.33 7.56a2.05 2.05 0 110-4.1 2.05 2.05 0 010 4.1zM20.45 20.45h-3.53v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7H9.36V9h3.39v1.56h.05c.47-.9 1.63-1.87 3.36-1.87 3.59 0 4.25 2.36 4.25 5.43v6.33z"/></svg>
-</a>
-
-<a href="#">
-<svg viewBox="0 0 24 24"><path d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5C19.43 22 22 19.43 22 16.25v-8.5C22 4.57 19.43 2 16.25 2h-8.5zm4.25 5.2a4.8 4.8 0 110 9.6 4.8 4.8 0 010-9.6zm0 7.9a3.1 3.1 0 100-6.2 3.1 3.1 0 000 6.2zm4.85-8.8a1.12 1.12 0 110-2.24 1.12 1.12 0 010 2.24z"/></svg>
-</a>
-
-<a href="#">
-<svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.5 9.87v-6.99H7.9v-2.88h2.6V9.41c0-2.56 1.52-3.98 3.85-3.98 1.12 0 2.3.2 2.3.2v2.52h-1.3c-1.28 0-1.68.8-1.68 1.62v1.94h2.86l-.46 2.88h-2.4v6.99A10 10 0 0022 12z"/></svg>
-</a>
+<a href="#"><svg viewBox="0 0 24 24"><path d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg></a>
+<a href="#"><svg viewBox="0 0 24 24"><path d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5"/></svg></a>
+<a href="#"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.5 9.87"/></svg></a>
 </div>
 
-<!-- WHATSAPP -->
+<!-- WHATSAPP REAL -->
 <a href="https://wa.me/123456789" class="whatsapp">
-<svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.88 11.88 0 0012.06 0C5.47 0 .1 5.37.1 11.96c0 2.1.55 4.15 1.6 5.97L0 24l6.23-1.63a11.93 11.93 0 005.83 1.49h.01c6.59 0 11.96-5.37 11.96-11.96 0-3.19-1.24-6.19-3.51-8.46zM12.07 21.5a9.5 9.5 0 01-4.84-1.33l-.35-.2-3.7.97.99-3.6-.23-.37a9.47 9.47 0 01-1.45-5.03c0-5.24 4.27-9.5 9.52-9.5 2.54 0 4.92.99 6.71 2.78a9.44 9.44 0 012.79 6.71c0 5.24-4.27 9.5-9.5 9.5z"/></svg>
+<svg viewBox="0 0 32 32">
+<path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.4 2.1 7.7L0 32l8.5-2.2c2.2 1.2 4.7 1.8 7.5 1.8 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.5c-2.4 0-4.7-.6-6.8-1.7l-.5-.3-5 1.3 1.3-4.8-.3-.5c-1.2-2-1.8-4.3-1.8-6.8C2.9 9 9 2.9 16 2.9S29.1 9 29.1 16 23 28.9 16 28.9z"/>
+</svg>
 </a>
 
 <script>
-
-/* SCROLL */
-const sections = document.querySelectorAll('.fade-section');
-window.addEventListener('scroll',()=>{
-sections.forEach(sec=>{
-const top = sec.getBoundingClientRect().top;
-if(top < window.innerHeight - 100){
-sec.classList.add('show');
-}
-});
-});
-
-/* LANGUAGE */
 function setLang(lang){
 localStorage.setItem("lang", lang);
-
 document.querySelectorAll('[data-es]').forEach(el=>{
 el.innerText = el.getAttribute('data-'+lang);
 });
-
 document.getElementById("btn-es").classList.remove("active");
 document.getElementById("btn-en").classList.remove("active");
 document.getElementById("btn-"+lang).classList.add("active");
 }
+setLang(localStorage.getItem("lang") || "es");
 
-const savedLang = localStorage.getItem("lang") || "es";
-setLang(savedLang);
-
+/* scroll */
+const sections = document.querySelectorAll('.fade-section');
+window.addEventListener('scroll',()=>{
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top < window.innerHeight - 100){
+sec.classList.add('show');
+}
+});
+});
 </script>
 
 </body>
