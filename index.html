@@ -7,7 +7,7 @@
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,700;1,9..40,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -83,10 +83,9 @@ nav.scrolled {
   animation: navFade 1s ease 0.2s forwards;
 }
 .nav-logo img {
-  height: 44px;
+  height: 62px;
   width: auto;
-  filter: brightness(0) invert(1);
-  /* Si no tienes logo.png, se muestra el texto abajo */
+  filter: none;
 }
 .nav-logo-text {
   display: flex;
@@ -263,16 +262,23 @@ nav.scrolled {
 
 /* BIG centered name — like Araya */
 .hero-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(5rem, 11vw, 13rem);
-  font-weight: 300;
-  line-height: 0.9;
-  color: rgba(255,255,255,0.88);
-  letter-spacing: -2px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(2.6rem, 4.5vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(255,255,255,0.93);
+  letter-spacing: -1.5px;
+  white-space: nowrap;
   opacity: 0;
   animation: heroReveal 2s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
   pointer-events: none;
   user-select: none;
+}
+.hero-title em {
+  font-style: normal;
+  font-weight: 300;
+  font-family: 'Inter', sans-serif;
+  color: rgba(255,255,255,0.65);
 }
 .hero-title em {
   font-style: italic;
@@ -292,7 +298,20 @@ nav.scrolled {
   animation: heroFadeUp 1.4s cubic-bezier(0.22, 1, 0.36, 1) 1.5s forwards;
 }
 .hero-sub .dot { margin: 0 14px; opacity: 0.4; }
-
+/* Tagline descriptivo debajo del título */
+.hero-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  max-width: 580px;
+  line-height: 1.75;
+  text-align: center;
+  margin-top: 20px;
+  letter-spacing: 0.1px;
+  opacity: 0;
+  animation: heroFadeUp 1.4s cubic-bezier(0.22, 1, 0.36, 1) 1.35s forwards;
+}
 /* CTA button */
 .hero-cta {
   margin-top: 52px;
@@ -543,12 +562,19 @@ nav.scrolled {
   gap: 0;
 }
 .form-field {
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding: 20px 0;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  transition: border-color 0.3s;
+  transition: background 0.3s, border-color 0.3s;
+}
+.form-field:focus-within {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.35);
 }
 .form-field:focus-within { border-color: rgba(255,255,255,0.4); }
 .form-field label {
@@ -614,12 +640,11 @@ nav.scrolled {
   width: 1px; height: 60px;
   background: rgba(255,255,255,0.1);
 }
-.social-sidebar a {
-  color: rgba(255,255,255,0.3);
-  font-size: 13px;
-  text-decoration: none;
-  transition: all 0.3s;
-}
+.social-sidebar a { font-size: 15px; text-decoration: none; transition: all 0.3s; color: rgba(255,255,255,0.3); }
+.social-sidebar a:hover { transform: scale(1.2); }
+.social-sidebar a.linkedin:hover  { color: #0A66C2; }
+.social-sidebar a.instagram:hover { color: #E1306C; }
+.social-sidebar a.facebook:hover  { color: #1877F2; }
 .social-sidebar a:hover { color: rgba(255,255,255,0.9); transform: scale(1.2); }
 
 /* ===========================
@@ -745,10 +770,15 @@ footer p {
 
     <!-- Título grande al centro, estilo Araya -->
     <h1 class="hero-title"
-        data-es="Grupo<br><em>Tierra Firme S.A.</em>"
-        data-en="Grupo<br><em>Tierra Firme S.A.</em>">
-      Grupo<br><em>Tierra Firme S.A.</em>
-    </h1>
+    data-es="Grupo Tierra Firme S.A."
+    data-en="Grupo Tierra Firme S.A.">
+  Grupo Tierra Firme S.A.
+</h1>
+     <p class="hero-tagline"
+   data-es="Conectamos conocimiento, capital y experiencia para desarrollar proyectos que generan impacto real y resultados medibles."
+   data-en="We connect knowledge, capital and experience to develop projects that generate real impact and measurable results.">
+  Conectamos conocimiento, capital y experiencia para desarrollar proyectos que generan impacto real y resultados medibles.
+</p>
 
     <p class="hero-sub">
       <span class="dot"></span>
@@ -943,9 +973,9 @@ footer p {
 
 <!-- ===== SOCIAL SIDEBAR ===== -->
 <div class="social-sidebar">
-  <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-  <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-  <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+  <a href="#" class="linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  <a href="#" class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+  <a href="#" class="facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
 </div>
 
 <!-- ===== WHATSAPP ===== -->
